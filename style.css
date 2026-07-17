@@ -1,0 +1,1346 @@
+/* ==========================================================
+   THE JOURNEY TO JULY 19
+   style.css
+   ========================================================== */
+
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#090909;
+    color:#ffffff;
+
+    font-family:'Poppins',sans-serif;
+
+    overflow-x:hidden;
+
+}
+
+/* ==========================================================
+   COLORS
+   ========================================================== */
+
+:root{
+
+    --gold:#D4AF37;
+    --white:#FFFFFF;
+    --black:#090909;
+    --gray:#BBBBBB;
+
+}
+
+/* ==========================================================
+   GLOBAL
+   ========================================================== */
+
+.section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:80px 8%;
+
+    position:relative;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+.active{
+
+    display:flex;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.section-title h2{
+
+    font-size:3rem;
+
+    color:var(--gold);
+
+    margin-bottom:15px;
+
+}
+
+.section-title p{
+
+    color:var(--gray);
+
+    font-size:1.05rem;
+
+}
+
+/* ==========================================================
+   LOADER
+   ========================================================== */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#090909;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    transition:1s;
+
+}
+
+.loader-content{
+
+    text-align:center;
+
+}
+
+.loader-content h2{
+
+    margin-top:35px;
+
+    font-weight:400;
+
+    color:white;
+
+}
+
+.loading-bar{
+
+    width:240px;
+
+    height:4px;
+
+    margin:35px auto;
+
+    background:#222;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+}
+
+.loading-bar span{
+
+    display:block;
+
+    width:0%;
+
+    height:100%;
+
+    background:var(--gold);
+
+    animation:loading 3s linear forwards;
+
+}
+
+/* ==========================================================
+   SUNFLOWER
+   ========================================================== */
+
+.sunflower-loader{
+
+    width:120px;
+
+    height:120px;
+
+    position:relative;
+
+    margin:auto;
+
+}
+
+.flower-center{
+
+    width:38px;
+
+    height:38px;
+
+    background:#5f3b08;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:5;
+
+}
+
+.petal{
+
+    position:absolute;
+
+    width:28px;
+
+    height:55px;
+
+    background:#f7c948;
+
+    border-radius:50px;
+
+    left:50%;
+
+    top:50%;
+
+    margin-left:-14px;
+
+    margin-top:-55px;
+
+    transform-origin:center 60px;
+
+    opacity:0;
+
+    animation:bloom 1.5s ease forwards;
+
+}
+
+.p1{transform:rotate(0deg);}
+.p2{transform:rotate(45deg);}
+.p3{transform:rotate(90deg);}
+.p4{transform:rotate(135deg);}
+.p5{transform:rotate(180deg);}
+.p6{transform:rotate(225deg);}
+.p7{transform:rotate(270deg);}
+.p8{transform:rotate(315deg);}
+
+.p1{animation-delay:.10s;}
+.p2{animation-delay:.20s;}
+.p3{animation-delay:.30s;}
+.p4{animation-delay:.40s;}
+.p5{animation-delay:.50s;}
+.p6{animation-delay:.60s;}
+.p7{animation-delay:.70s;}
+.p8{animation-delay:.80s;}
+
+/* ==========================================================
+   ANIMATIONS
+   ========================================================== */
+
+@keyframes bloom{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.2);
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes loading{
+
+    from{
+
+        width:0%;
+
+    }
+
+    to{
+
+        width:100%;
+
+    }
+  /* ==========================================================
+   PUZZLE SECTION
+   ========================================================== */
+
+#puzzle{
+
+    background:
+    radial-gradient(circle at top,#1d1d1d,#090909 70%);
+
+}
+
+.glass-card{
+
+    width:100%;
+    max-width:650px;
+
+    padding:60px 50px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+}
+
+.small-title{
+
+    color:var(--gold);
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+
+    text-transform:uppercase;
+
+    font-size:.9rem;
+
+}
+
+.glass-card h1{
+
+    font-size:2.7rem;
+
+    line-height:1.3;
+
+    margin-bottom:40px;
+
+}
+
+#yearInput{
+
+    width:220px;
+
+    height:60px;
+
+    text-align:center;
+
+    font-size:1.5rem;
+
+    color:white;
+
+    background:#111;
+
+    border:2px solid #333;
+
+    border-radius:15px;
+
+    outline:none;
+
+    transition:.35s;
+
+}
+
+#yearInput:focus{
+
+    border-color:var(--gold);
+
+    box-shadow:0 0 20px rgba(212,175,55,.3);
+
+}
+
+#unlockBtn{
+
+    display:block;
+
+    margin:30px auto 15px;
+
+    padding:16px 42px;
+
+    border:none;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:black;
+
+    background:var(--gold);
+
+    transition:.35s;
+
+}
+
+#unlockBtn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 30px rgba(212,175,55,.35);
+
+}
+
+#message{
+
+    min-height:28px;
+
+    color:var(--gold);
+
+    margin-top:10px;
+
+    font-size:1rem;
+
+}
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+#hero{
+
+    overflow:hidden;
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+/* Animated Background */
+
+.gradient-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top,#2b1e05,#090909 70%);
+
+    animation:gradientMove 10s ease-in-out infinite alternate;
+
+}
+
+/* Floating Particles */
+
+.particles{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+}
+
+.particles span{
+
+    position:absolute;
+
+    width:6px;
+
+    height:6px;
+
+    background:rgba(255,255,255,.5);
+
+    border-radius:50%;
+
+    animation:floatParticle linear infinite;
+
+}
+
+/* Hero Content */
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:900px;
+
+}
+
+.hero-content h1{
+
+    font-size:4.5rem;
+
+    margin-bottom:20px;
+
+    color:white;
+
+}
+
+.hero-content h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:3rem;
+
+    color:var(--gold);
+
+    line-height:1.4;
+
+    margin-bottom:25px;
+
+}
+
+.hero-content p{
+
+    color:#d0d0d0;
+
+    font-size:1.2rem;
+
+    margin-bottom:45px;
+
+}
+
+#beginJourney{
+
+    padding:18px 50px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    background:var(--gold);
+
+    color:black;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+#beginJourney:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 35px rgba(212,175,55,.35);
+
+}
+
+/* ==========================================================
+   REVEAL ANIMATION
+   ========================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:1s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================================================
+   ANIMATIONS
+   ========================================================== */
+
+@keyframes gradientMove{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+@keyframes floatParticle{
+
+    from{
+
+        transform:translateY(100vh);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    80%{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(-120px);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media(max-width:768px){
+
+    .glass-card{
+
+        padding:40px 25px;
+
+    }
+
+    .glass-card h1{
+
+        font-size:2rem;
+
+    }
+
+    #yearInput{
+
+        width:180px;
+
+        font-size:1.3rem;
+
+    }
+
+    .hero-content h1{
+
+        font-size:2.8rem;
+
+    }
+
+    .hero-content h2{
+
+        font-size:2.2rem;
+
+    }
+
+    .hero-content p{
+
+        font-size:1rem;
+
+    }
+
+}
+ /* ==========================================================
+   TIMELINE
+   ========================================================== */
+
+#timeline{
+
+    background:#0b0b0b;
+
+}
+
+#timeline .container{
+
+    max-width:1000px;
+
+}
+
+.timeline-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:50px;
+
+    margin-bottom:90px;
+
+}
+
+.timeline-card:nth-child(even){
+
+    flex-direction:row-reverse;
+
+}
+
+.timeline-image{
+
+    flex:1;
+
+}
+
+.timeline-image img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:20px;
+
+    object-fit:cover;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+    transition:.4s;
+
+}
+
+.timeline-image img:hover{
+
+    transform:scale(1.03);
+
+}
+
+.timeline-content{
+
+    flex:1;
+
+}
+
+.timeline-content.full{
+
+    flex:none;
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+.year{
+
+    display:inline-block;
+
+    padding:8px 20px;
+
+    border-radius:30px;
+
+    background:rgba(212,175,55,.15);
+
+    color:var(--gold);
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.timeline-content h3{
+
+    font-size:2rem;
+
+    margin-bottom:18px;
+
+}
+
+.timeline-content p{
+
+    color:#c9c9c9;
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+
+}
+
+/* ==========================================================
+   GALLERY
+   ========================================================== */
+
+#gallery{
+
+    background:#090909;
+
+}
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+.gallery-item{
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    background:#151515;
+
+    transition:.35s;
+
+}
+
+.gallery-item:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+
+}
+
+.gallery-item img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.5s;
+
+}
+
+.gallery-item:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.gallery-caption{
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#d4d4d4;
+
+}
+
+/* ==========================================================
+   IMAGE MODAL
+   ========================================================== */
+
+#imageModal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:99999;
+
+    padding:30px;
+
+}
+
+#imageModal.active{
+
+    display:flex;
+
+}
+
+#modalImage{
+
+    max-width:90%;
+
+    max-height:75vh;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.6);
+
+}
+
+#modalCaption{
+
+    margin-top:25px;
+
+    color:white;
+
+    font-size:1.1rem;
+
+    text-align:center;
+
+}
+
+#closeModal{
+
+    position:absolute;
+
+    top:25px;
+
+    right:40px;
+
+    font-size:45px;
+
+    cursor:pointer;
+
+    color:white;
+
+    transition:.3s;
+
+}
+
+#closeModal:hover{
+
+    color:var(--gold);
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media(max-width:900px){
+
+    .timeline-card{
+
+        flex-direction:column !important;
+
+        text-align:center;
+
+    }
+
+    .timeline-content{
+
+        width:100%;
+
+    }
+
+    .timeline-content h3{
+
+        font-size:1.7rem;
+
+    }
+
+} 
+  /* ==========================================================
+   LETTER
+   ========================================================== */
+
+#letter{
+
+    background:linear-gradient(to bottom,#0b0b0b,#111);
+
+}
+
+.letter-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.letter-paper{
+
+    width:100%;
+    max-width:800px;
+
+    padding:60px;
+
+    background:#fdf7ea;
+
+    color:#2c2c2c;
+
+    border-radius:20px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:2rem;
+
+    line-height:1.8;
+
+    position:relative;
+
+}
+
+#typedLetter{
+
+    white-space:pre-wrap;
+
+}
+
+.cursor{
+
+    color:#444;
+
+    animation:blink .8s infinite;
+
+}
+
+/* ==========================================================
+   FINAL SECTION
+   ========================================================== */
+
+#final{
+
+    background:url("assets/images/final.jpg") center center/cover no-repeat;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.final-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.75)
+    );
+
+}
+
+.final-content{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+}
+
+.final-content h3{
+
+    font-size:2rem;
+
+    color:var(--gold);
+
+    margin-bottom:15px;
+
+}
+
+.final-content h1{
+
+    font-size:5rem;
+
+    margin-bottom:20px;
+
+}
+
+.final-content .heart{
+
+    font-size:3rem;
+
+    margin:20px 0;
+
+    animation:pulse 2s infinite;
+
+}
+
+.final-content h2{
+
+    font-size:3rem;
+
+    color:var(--gold);
+
+    margin-bottom:25px;
+
+}
+
+.final-content p{
+
+    max-width:650px;
+
+    margin:0 auto 20px;
+
+    line-height:1.8;
+
+    color:#eeeeee;
+
+}
+
+.signature{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:2.4rem;
+
+    color:white;
+
+}
+
+.ending{
+
+    margin-top:35px;
+
+    color:#cccccc;
+
+    font-style:italic;
+
+}
+
+/* ==========================================================
+   PETALS
+   ========================================================== */
+
+.petals{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+
+.petal-fall{
+
+    position:absolute;
+
+    width:12px;
+
+    height:18px;
+
+    background:#f7c948;
+
+    border-radius:50% 50% 50% 0;
+
+    opacity:.8;
+
+    animation:fall linear infinite;
+
+}
+
+/* ==========================================================
+   BUTTON IMPROVEMENTS
+   ========================================================== */
+
+button{
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--gold);
+
+    border-radius:20px;
+
+}
+
+/* ==========================================================
+   ANIMATIONS
+   ========================================================== */
+
+@keyframes blink{
+
+    50%{
+
+        opacity:0;
+
+    }
+
+}
+
+@keyframes pulse{
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+}
+
+@keyframes fall{
+
+    from{
+
+        transform:
+        translateY(-50px)
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(360deg);
+
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media(max-width:768px){
+
+    .letter-paper{
+
+        padding:35px 25px;
+
+        font-size:1.6rem;
+
+    }
+
+    .final-content h1{
+
+        font-size:3rem;
+
+    }
+
+    .final-content h2{
+
+        font-size:2rem;
+
+    }
+
+    .final-content h3{
+
+        font-size:1.4rem;
+
+    }
+
+    .signature{
+
+        font-size:2rem;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .section{
+
+        padding:60px 20px;
+
+    }
+
+    .section-title h2{
+
+        font-size:2rem;
+
+    }
+
+    .glass-card{
+
+        padding:30px 20px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:2.3rem;
+
+    }
+
+    .hero-content h2{
+
+        font-size:1.9rem;
+
+    }
+
+    #unlockBtn,
+    #beginJourney{
+
+        width:100%;
+
+    }
+
+}
+  
+  
+  
+
+}
